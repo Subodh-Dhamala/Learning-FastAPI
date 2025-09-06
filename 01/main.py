@@ -26,7 +26,7 @@ user_db = []
 @app.post('/users')
 def create_user(user:User): #using pyndatic for type validation from class 
   user_db.append(user)
-  return {"message": f"{user} has registered!"}
+  return {"message": f"{user.name} has registered!"}
 
 #Reading the users list
 @app.get('/users')
@@ -35,7 +35,7 @@ def read_all_users():
 
 
 #Reading nid
-@app.get('users/{nid}')
+@app.get('/users/{nid}')
 def read_nid(nid:int):
   for user in user_db:
     if user.nid == nid:
@@ -45,8 +45,19 @@ def read_nid(nid:int):
 
 #PUT request to update User- PUT means updating
 @app.put('/users/{nid}')
-def update(nid:str,updated_user:User):
-  #to be continued
+def update(nid:int,updated_user:User):
+  #enumerate()gives both the index and the item while looping
+  for i, user in enumerate(user_db):
+    if user.nid == nid:
+      user_db[i]= updated_user
+      return {"message": f"User {updated_user.name} has updated their details!"}
+  return {"message":"User not found!"}
 
-
-
+# DELETE request to delete user
+@app.delete('/users/{nid}')
+def delete(nid:int):
+  for i,user in enumerate(user_db):
+    if user.nid == nid:
+      user_db.pop(i)
+      return {"message": f"User {user.name} Deleted!"}
+  return {"message":"User not found!"}
