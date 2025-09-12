@@ -20,7 +20,6 @@ The backend is powered by **MySQL** with **SQLAlchemy ORM**, and **FastAPI** ser
 ### 1️⃣ Create Project Folder
 Create a dedicated folder for your project:
 
-```bash
 mkdir -p ~/Desktop/FastApi_Learning/02
 2️⃣ Navigate to Project Root
 Open your terminal and move to the project folder using Git Bash:
@@ -113,47 +112,13 @@ You can test all API endpoints directly from the Swagger UI.
 
 API Endpoints
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-MethodEndpointDescriptionGET/Root endpoint, shows API statusPOST/users/Create a new userGET/users/Retrieve all usersGET/users/{nid}Retrieve a user by NIDPUT/users/{nid}Update a user by NIDDELETE/users/{nid}Delete a user by NID
-
+Method,Endpoint,Description
+GET,/,"Root endpoint, shows API status"
+POST,/users/,Create a new user
+GET,/users/,Retrieve all users
+GET,/users/{nid},Retrieve a user by NID
+PUT,/users/{nid},Update a user by NID
+DELETE,/users/{nid},Delete a user by NID
 Notes
 
 Ensure the MySQL server is running before launching the API.
